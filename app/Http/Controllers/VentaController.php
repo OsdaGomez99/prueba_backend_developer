@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
+use App\Sucursal;
+use App\Vendedor;
 use App\Venta;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
@@ -178,9 +181,9 @@ class VentaController extends Controller
     public function index()
     {
         $ventas = Venta::with(['vendedor', 'cliente', 'sucursal'])
-                        ->select(['id_vendedor', 'id_cliente', 'id_sucursal', 'fecha_venta', 'monto_total'])
-                        ->paginate(8);
-        return view ('ventas', compact('ventas'));
+                        ->select(['id', 'id_vendedor', 'id_cliente', 'id_sucursal', 'fecha_venta', 'monto_total'])
+                        ->latest()->paginate(8);
+        return view ('ventas.index', compact('ventas'));
     }
 
     /**
@@ -190,7 +193,10 @@ class VentaController extends Controller
      */
     public function create()
     {
-        return view('ventas-create');
+        $vends = Vendedor::select('id', 'nombre_ven', 'apellido_ven')->get();
+        $clientes = Cliente::select('id', 'nombre_cliente', 'apellido_cliente')->get();
+        $sucs = Sucursal::select('id', 'pais')->get();
+        return view('ventas.create', compact('vends', 'clientes', 'sucs'));
     }
 
     /**
@@ -201,7 +207,16 @@ class VentaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id_vendedor' => 'required|integer|min:1|max:20',
+            'id_cliente' => 'required|integer|min:1|max:100',
+            'id_sucursal' => 'required|integer|min:1|max:10',
+            'fecha_venta' => 'required|date',
+            'monto_total' => 'required|numeric|min:1|regex:/^[\d]{0,5}(\.[\d]{1,2})?$/',
+        ]);
+
+        Venta::create($request->all());
+        return redirect()->route('ventas.index')->with('success','Venta creada');
     }
 
     /**
@@ -223,7 +238,10 @@ class VentaController extends Controller
      */
     public function edit(Venta $venta)
     {
-        //
+        $vends = Vendedor::select('id', 'nombre_ven', 'apellido_ven')->get();
+        $clientes = Cliente::select('id', 'nombre_cliente', 'apellido_cliente')->get();
+        $sucs = Sucursal::select('id', 'pais')->get();
+        return view('ventas.edit', compact('venta', 'vends', 'clientes', 'sucs'));
     }
 
     /**
@@ -235,7 +253,16 @@ class VentaController extends Controller
      */
     public function update(Request $request, Venta $venta)
     {
-        //
+        $request->validate([
+            'id_vendedor' => 'required|integer|min:1|max:20',
+            'id_cliente' => 'required|integer|min:1|max:100',
+            'id_sucursal' => 'required|integer|min:1|max:10',
+            'fecha_venta' => 'required|date',
+            'monto_total' => 'required|numeric|min:1|regex:/^[\d]{0,5}(\.[\d]{1,2})?$/',
+        ]);
+
+        $venta->update($request->all());
+        return redirect()->route('ventas.index')->with('success','Venta creada');
     }
 
     /**
@@ -244,9 +271,8 @@ class VentaController extends Controller
      * @param  \App\Venta  $venta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Venta $id)
+    public function destroy(Venta $venta)
     {
-        $venta = Venta::findId($id);
         $venta -> delete();
         return redirect ('/ventas');
     }
