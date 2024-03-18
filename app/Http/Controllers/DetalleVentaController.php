@@ -14,7 +14,7 @@ class DetalleVentaController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -33,9 +33,23 @@ class DetalleVentaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $venta)
     {
-        //
+        $request->validate([
+            'id_producto' => 'required|integer|min:1|max:1000',
+            'cantidad' => 'required|integer|min:1|max:9999',
+            'precio_unitario' => 'required|integer|min:1|max:99999',
+        ]);
+
+        DetalleVenta::create([
+            'id_venta' => $venta,
+            'id_producto' => $request->id_producto,
+            'cantidad' => $request->cantidad,
+            'precio_unitario' => $request->precio_unitario,
+            'subtotal' => $request->precio_unitario * $request->cantidad
+
+        ]);
+        return redirect()->route('ventas.show', $venta)->with('success','Detalle de venta creada');
     }
 
     /**
@@ -78,8 +92,11 @@ class DetalleVentaController extends Controller
      * @param  \App\DetalleVenta  $detalleVenta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleVenta $detalleVenta)
+    public function destroy($id, $venta)
     {
-        //
+        $detalle = DetalleVenta::find($id);
+        $detalle->delete();
+        return redirect()->route('ventas.show', $venta)->with('success','Detalle de venta eliminado');
+
     }
 }

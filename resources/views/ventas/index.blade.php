@@ -33,10 +33,10 @@
                             {{\Carbon\Carbon::parse($venta->fecha_venta)->format('d/m/Y')}}
                         </td>
                         <td>
-                            {{number_format($venta->monto_total, 2, '.', '')}}
+                            {{number_format($venta->monto_total, 2, '.', '')}} {{$venta->sucursal->moneda}}
                         </td>
                         <td>
-                            <a href="/ventas/{{$venta->id}}/detalle_venta" class="btn btn-success">Ver Detalles</a>
+                            <a href="/ventas/{{$venta->id}}" class="btn btn-success">Ver Detalles</a>
                             <a href="/ventas/{{$venta->id}}/edit" class="btn btn-info">Editar</a>
                             <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" value="Borrar">Borrar</button>
                             <form action="{{ route('ventas.destroy', ['venta' => $venta->id]) }}" method="POST">

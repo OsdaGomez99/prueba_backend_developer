@@ -19,7 +19,7 @@ class CreateDetallesVentasTable extends Migration
             $table->unsignedBigInteger('id_producto')->comment('Llave foránea en la tabla productos');
             $table->integer('cantidad')->unsigned()->comment('Cantidad del producto del detalle de venta');
             $table->float('precio_unitario')->comment('Precio unitario por producto');
-            $table->float('subtotal')->comment('Resultado de cantidad de productos * productos ');
+            $table->float('subtotal', 10, 2)->comment('Resultado de cantidad de productos * productos ');
             $table->timestamps();
 
             $table->foreign('id_venta')->references('id')->on('ventas');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\DetalleVenta;
+use App\Producto;
 use App\Sucursal;
 use App\Vendedor;
 use App\Venta;
@@ -227,7 +229,11 @@ class VentaController extends Controller
      */
     public function show(Venta $venta)
     {
-        //
+        $detalles = DetalleVenta::with('producto')
+                                ->where('id_venta', $venta->id)
+                                ->latest()->paginate(5);
+        $productos = Producto::select(['id', 'nombre_pro'])->get();
+        return view('ventas.detalles-ventas', compact('venta', 'detalles', 'productos'));
     }
 
     /**
