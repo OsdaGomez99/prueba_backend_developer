@@ -1,6 +1,6 @@
 @extends('app')
 
-@section('titulo', 'Productoss - Test')
+@section('titulo', 'Productos - Test')
 
 @section('descripcion', 'Productos')
 

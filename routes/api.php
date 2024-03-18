@@ -26,4 +26,5 @@ Route::group(['middleware' => 'api'], function ($router){
 
     //Endpoint de metodo POST para crear una venta
     Route::post('createVenta', 'VentaController@createVenta');
+    Route::post('createDetalleVenta', 'DetalleVentaController@createDetalleVenta');
 });

@@ -88,6 +88,83 @@
                 }
             }
         },
+        "/api/createDetalleVenta": {
+            "post": {
+                "tags": [
+                    "DetalleVenta"
+                ],
+                "summary": "Crear un nuevo detalle de venta",
+                "operationId": "App\\Http\\Controllers\\DetalleVentaController::createDetalleVenta",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_venta": {
+                                        "description": "Crear un nuevo detalle de venta",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "id_producto": {
+                                        "description": "Crear un nuevo detalle de venta",
+                                        "type": "number",
+                                        "example": "2"
+                                    },
+                                    "cantidad": {
+                                        "description": "Crear un nuevo detalle de venta",
+                                        "type": "number",
+                                        "example": "30"
+                                    },
+                                    "precio_unitario": {
+                                        "description": "Crear un nuevo detalle de venta",
+                                        "type": "number",
+                                        "example": "567.00"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Detalle de Venta creado exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Crear un nuevo detalle de venta",
+                                            "type": "string",
+                                            "example": "Detalle de Venta creado correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Crear un nuevo detalle de venta",
+                                            "type": "string",
+                                            "example": "Error en los datos enviados"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/getProductos": {
             "get": {
                 "tags": [
