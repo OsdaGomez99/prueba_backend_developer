@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return redirect('/ventas');
+});
+
 
 Route::resource('ventas', VentaController::class);
 Route::resource('proveedores', ProveedorController::class);
