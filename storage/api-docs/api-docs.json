@@ -1,0 +1,534 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "API test-backend-developer",
+        "description": "Listado de URI's de la API test-backend-developer",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8000"
+        }
+    ],
+    "paths": {
+        "/api/getClientes": {
+            "get": {
+                "tags": [
+                    "Cliente"
+                ],
+                "summary": "Listado de clientes",
+                "operationId": "App\\Http\\Controllers\\ClienteController::getClientes",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de clientes",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "rut_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "number",
+                                                        "example": "12345678"
+                                                    },
+                                                    "nombre_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "Osdalys"
+                                                    },
+                                                    "apellido_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "Gomez"
+                                                    },
+                                                    "dir_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "Calle 1, Avenida 2, Apartamento 3, Santiago"
+                                                    },
+                                                    "tel_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "+575556666"
+                                                    },
+                                                    "pais_cliente": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "Chile"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de clientes",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getProductos": {
+            "get": {
+                "tags": [
+                    "Producto"
+                ],
+                "summary": "Listado de productos",
+                "operationId": "App\\Http\\Controllers\\ProductoController::getProductos",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de productos",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de productos",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "nombre_pro": {
+                                                        "description": "Listado de productos",
+                                                        "type": "string",
+                                                        "example": "Pro"
+                                                    },
+                                                    "precio_pro": {
+                                                        "description": "Listado de productos",
+                                                        "type": "number",
+                                                        "example": "1234.56"
+                                                    },
+                                                    "stock_pro": {
+                                                        "description": "Listado de productos",
+                                                        "type": "number",
+                                                        "example": "123"
+                                                    },
+                                                    "id_sucursal": {
+                                                        "description": "Listado de productos",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de productos",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de productos",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getProveedores": {
+            "get": {
+                "tags": [
+                    "Proveedor"
+                ],
+                "summary": "Listado de proveedores",
+                "operationId": "App\\Http\\Controllers\\ProveedorController::getProveedores",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de proveedores",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "rut_prov": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "number",
+                                                        "example": "12345678"
+                                                    },
+                                                    "nombre_prov": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "Osdalys"
+                                                    },
+                                                    "dir_prov": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "Calle 1, Avenida 2, Apartamento 3, Santiago"
+                                                    },
+                                                    "tel_prov": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "+575556666"
+                                                    },
+                                                    "pagina_web": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "paginaweb.com"
+                                                    },
+                                                    "pais_prov": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "Chile"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de proveedores",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getSucursales": {
+            "get": {
+                "tags": [
+                    "Sucursal"
+                ],
+                "summary": "Listado de sucursales",
+                "operationId": "App\\Http\\Controllers\\SucursalController::getSucursales",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de sucursales",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de sucursales",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "pais": {
+                                                        "description": "Listado de sucursales",
+                                                        "type": "string",
+                                                        "example": "Chile"
+                                                    },
+                                                    "moneda": {
+                                                        "description": "Listado de sucursales",
+                                                        "type": "string",
+                                                        "example": "CLP"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de sucursales",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de sucursales",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getVendedores": {
+            "get": {
+                "tags": [
+                    "Vendedor"
+                ],
+                "summary": "Listado de vendedores",
+                "operationId": "App\\Http\\Controllers\\VendedorController::getVendedores",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de vendedores",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "rut_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "number",
+                                                        "example": "12345678"
+                                                    },
+                                                    "nombre_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "Osdalys"
+                                                    },
+                                                    "apellido_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "Gomez"
+                                                    },
+                                                    "dir_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "Calle 1, Avenida 2, Apartamento 3, Santiago"
+                                                    },
+                                                    "tel_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "+575556666"
+                                                    },
+                                                    "fecha_na_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "1999-06-24"
+                                                    },
+                                                    "email_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "osdalysgomez@mail.com"
+                                                    },
+                                                    "pais_ven": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "Chile"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de vendedores",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/getVentas": {
+            "get": {
+                "tags": [
+                    "Venta"
+                ],
+                "summary": "Listado de ventas con sus detalles de venta",
+                "operationId": "App\\Http\\Controllers\\VentaController::getVentas",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "rows": {
+                                            "description": "Listado de ventas con sus detalles de venta",
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "id_vendedor": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "number",
+                                                        "example": "1"
+                                                    },
+                                                    "id_cliente": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "number",
+                                                        "example": "2"
+                                                    },
+                                                    "id_sucursal": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "number",
+                                                        "example": "3"
+                                                    },
+                                                    "fecha_venta": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "string",
+                                                        "example": "2024-03-10"
+                                                    },
+                                                    "monto_total": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "number",
+                                                        "example": "123.45"
+                                                    },
+                                                    "created_at": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T00:09:16.000000Z"
+                                                    },
+                                                    "updated_at": {
+                                                        "description": "Listado de ventas con sus detalles de venta",
+                                                        "type": "string",
+                                                        "example": "2023-02-23T12:33:45.000000Z"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/createVenta": {
+            "post": {
+                "tags": [
+                    "Venta"
+                ],
+                "summary": "Crear una nueva venta",
+                "operationId": "App\\Http\\Controllers\\VentaController::createVenta",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "id_vendedor": {
+                                        "description": "Crear una nueva venta",
+                                        "type": "number",
+                                        "example": "1"
+                                    },
+                                    "id_cliente": {
+                                        "description": "Crear una nueva venta",
+                                        "type": "string",
+                                        "example": "2"
+                                    },
+                                    "id_sucursal": {
+                                        "description": "Crear una nueva venta",
+                                        "type": "string",
+                                        "example": "3"
+                                    },
+                                    "fecha_venta": {
+                                        "description": "Crear una nueva venta",
+                                        "type": "string",
+                                        "example": "2014-03-10"
+                                    },
+                                    "monto_total": {
+                                        "description": "Crear una nueva venta",
+                                        "type": "number",
+                                        "example": "123.45"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Venta creada exitosamente",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Crear una nueva venta",
+                                            "type": "string",
+                                            "example": "Venta creada correctamente"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Error de validación",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "description": "Crear una nueva venta",
+                                            "type": "string",
+                                            "example": "Error en los datos enviados"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
